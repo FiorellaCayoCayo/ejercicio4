@@ -1,3 +1,4 @@
+package Ejercicio4;
 
 import java.util.*;
 
@@ -12,8 +13,10 @@ public class Test {
 		
 		OperacionesArray <Producto> arr = new OperacionesArray <Producto>(producto);
 		System.out.println("POSICION DEL ELEMENTO: "+ arr.posicionArray(new Producto("polo", 27, 15.00, "13/05/21")));
-		System.out.println("ELIMMINAR: "+ arr.remove(new Producto("cuaderno", 50, 3.00, "09/04/21")));
 		System.out.println("ORDENADO: "+ arr.Ordenar());
+		System.out.println("ELIMINAR: "+ arr.remove(new Producto("cuaderno", 50, 3.00, "09/04/21")));
+		
 	}
 
 }
+
