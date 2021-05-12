@@ -1,3 +1,4 @@
+package ejercicio4;
 
 import java.util.*;
 
@@ -7,6 +8,7 @@ public class OperacionesArray<T extends Producto> {
 	public OperacionesArray(ArrayList <T> a) {
 		arr.addAll(a);
 	}
+	
 	public int posicionArray( T elem) {
 		for(int i = 0; i < arr.size(); i++) {
 			if(elem.compareToBusqueda(arr.get(i)) == 1) 
@@ -26,8 +28,8 @@ public class OperacionesArray<T extends Producto> {
 	public ArrayList Ordenar (){
 		for(int i=0; i < arr.size(); i++) {
 			int j = i;
-			while(j > 0 && arr.get(j).compareToOrdenar(arr.get(j-1)) > 0) {
-				T a = arr.get(j);
+			while(j > 0 && arr.get(j).compareToOrdenar(arr.get(j-1)) == 1) {
+				T a = (T) arr.get(j);
 				arr.set(j, arr.get(j-1));
 				arr.set(j-1, a);
 				j--;
@@ -35,6 +37,21 @@ public class OperacionesArray<T extends Producto> {
 		}
 		return arr;
 	}
+	
+	//metodo que se usa para comparar por insercion para cualquier objeto T
+	/*public <T extends Comparable <T>> ArrayList ordenar (ArrayList <T> arr){
+		for(int i=0; i < arr.size(); i++) {
+			int j = i;
+			while(j > 0 && arr.get(j).compareTo(arr.get(j-1)) == 1) {
+				T a = (T) arr.get(j);
+				arr.set(j, arr.get(j-1));
+				arr.set(j-1, a);
+				j--;
+			}
+		}
+		return arr;
+	}
+	*/
 
 }
 
@@ -76,6 +93,10 @@ class Producto {
 		if(stock < elem.getStock())
 			return 1;
 		return 0;
+	}
+	
+	public String toString() {
+		return "\n" + getDescripcion() + "\t stock: "+getStock() + "\t precio: "+getPrecio() + "\t fecha produccion: " + getFechaProd();
 	}
 	
 }
